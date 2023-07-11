@@ -6,7 +6,6 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 };
 
-
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
@@ -29,10 +28,10 @@ window.onscroll = () => {
 
     header.classList.toggle('sticky', window.scrollY > 100);
 
-
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
 };
+
 
 function enviarMensagem() {
   event.preventDefault(); // Evita o envio do formulário
@@ -44,3 +43,29 @@ function enviarMensagem() {
   var url = "https://wa.me/" + numero + "?text=" + texto;
   window.open(url);
 }
+
+
+const data = new Date();
+const hora = data.getHours();
+let saudacao;
+
+switch (hora) {
+  case hora < 12:
+    saudacao = 'Bom dia';
+    break;
+  
+  case hora < 18:
+    saudacao = 'Boa tarde';
+    break;
+  default:
+    saudacao = 'Boa noite';
+    break;
+}
+
+const typed = new Typed('.multiple-text', {
+    strings: ['Ao Undxs', `${saudacao}.`, 'Boa Sorte!', 'Criado pela Undefined'],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 1000,
+    loop: true
+});
