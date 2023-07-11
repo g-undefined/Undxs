@@ -230,6 +230,7 @@ span {
   .home {
     flex-direction: column;
     align-items: center;
+    justify-content: normal;
   }
 
   .home-content h3 {
