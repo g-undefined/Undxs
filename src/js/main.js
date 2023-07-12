@@ -33,34 +33,40 @@ window.onscroll = () => {
 };
 
 // Fase 1
-const botaoFaseUm = document.querySelector('#awnser-button01')
+function faseUmFuncao() {
+  return {
+    // Atributos
+    botaoFaseUm: document.querySelector('#awnser-button01'),
 
-botaoFaseUm.addEventListener('click', event => {
-  const respostaFaseUm = document.querySelector('#awnser-input01')
-  const resposta = respostaFaseUm.value
-  const respostaFormatada = String(resposta).toLowerCase()
+    // Métodos
+    inicia() {
+      this.adicionaEventoBotao();
+    },
 
-  function verificar (valor) {
-    const paragrafo = document.querySelector('.verificacao')
-    const respostaIncorreta = 'Resposta <span class="incorreta">Errada</span>!'
-    const respostaCorreta = 'Resposta <span class="correta">Correta</span>! Carregando próxima fase...'
+    adicionaEventoBotao() {
+      this.botaoFaseUm.addEventListener('click', event => {
+        const respostaFaseUm = document.querySelector('#awnser-input01');
+        const respostaFormatada = respostaFaseUm.value.toLowerCase().trim();
+        const paragrafo = document.querySelector('.verificacao');
+        const respostaIncorreta = 'Resposta <span class="incorreta">Errada</span>!';
+        const respostaCorreta = 'Resposta <span class="correta">Correta</span>! Carregando próxima fase...';
 
-    if (valor === 'correta') {
-      paragrafo.innerHTML = respostaCorreta;
-      setTimeout(() => {
-        window.location.href = '../html/IIn0Sa7tnb6sfT.html';
-      }, 3000);
-    } else if (valor === 'incorreta') {
-      paragrafo.innerHTML = respostaIncorreta;
+        if (respostaFormatada === 'ártico' || respostaFormatada === 'artico') {
+          paragrafo.innerHTML = respostaCorreta;
+          setTimeout(() => {
+            window.location.href = '../html/IIn0Sa7tnb6sfT.html';
+          }, 3000);
+        } else {
+          paragrafo.innerHTML = respostaIncorreta;
+        }
+      });
     }
-  }
+  };
+}
 
-  if (respostaFormatada === 'ártico' || respostaFormatada === 'artico') return verificar('correta');
-  else return verificar('incorreta');
+const faseUm = faseUmFuncao();
+faseUm.inicia();
 
-  
-  console.log(resposta);
-})
 
 
 // Fase 2
