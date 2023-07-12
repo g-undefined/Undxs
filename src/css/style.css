@@ -111,7 +111,7 @@ section {
   font-weight: 500;
   padding: 1rem 2rem 2rem;
   letter-spacing: -0.8px;
-  width: 85%;
+  width: 87%;
   margin: auto;
 }
 
@@ -128,12 +128,89 @@ section {
 }
 
 .awnser button {
-  background-color: rgba(255, 255, 255, .0);
-  border: 1px solid rgba(255, 255, 255, .4);
+  background-color: var(--main-color);
   color: var(--text-color);
+  box-shadow: 0 0 1rem var(--main-color);
+  font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 4rem;
   display: block;
   margin: auto;
+  margin-top: 2rem;
   margin-bottom: 4rem;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.awnser button:hover {
+  box-shadow: none;
+}
+
+.verificacao {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.correta {
+  color: green;
+}
+
+.incorreta {
+  color: red;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 2rem 3%;
+  }
+
+  section {
+    padding: 10rem 3% 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3%;
+    background: var(--bg-color);
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    display: none;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  .navbar a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+
+  .awnser input {
+    width: 85%;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
 }
